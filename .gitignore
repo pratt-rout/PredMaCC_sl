@@ -1,4 +1,7 @@
+.venv/
+.cortex/
 output/
 __pycache__/
 *.pyc
 .streamlit/secrets.toml
+deploy_command.txt

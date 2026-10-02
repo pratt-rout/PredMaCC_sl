@@ -1,0 +1,6 @@
+Equipment_ID,Name,Type,Location,Install_Date,Criticality
+DIE-001,Front-Left Door Panel Die,Progressive Die,Press Line 1 - Station A,2020-06-10,Critical
+DIE-002,Front-Right Door Panel Die,Progressive Die,Press Line 1 - Station B,2020-06-10,Critical
+DIE-003,Rear-Left Door Panel Die,Transfer Die,Press Line 2 - Station A,2019-11-20,High
+DIE-004,Rear-Right Door Panel Die,Transfer Die,Press Line 2 - Station B,2019-11-20,High
+DIE-005,Tailgate Inner Panel Die,Tandem Die,Press Line 3 - Station A,2021-03-15,Critical

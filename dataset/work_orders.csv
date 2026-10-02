@@ -1,0 +1,73 @@
+WO_ID,Equipment_ID,Created,Priority,Status,Assigned_To,Description,Due_Date
+WO-0065,DIE-005,2024-01-02 03:00:00,Low,Completed,Suresh Nair,Scheduled die tryout and panel quality audit,2024-01-12
+WO-0044,DIE-002,2024-01-04 11:00:00,Medium,Open,Rajesh Kumar,Scheduled die tryout and panel quality audit,2024-01-13
+WO-0072,DIE-005,2024-01-07 02:00:00,Medium,Completed,Rajesh Kumar,Blank-holder pressure rebalancing,2024-01-11
+WO-0001,DIE-001,2024-01-15 12:00:00,High,Overdue,Rajesh Kumar,Investigate Die Crack: Fatigue crack propagation in die insert due to cyclic stamping load,2024-01-19
+WO-0053,DIE-003,2024-01-20 01:00:00,Medium,Open,Deepak Joshi,Scheduled die tryout and panel quality audit,2024-02-03
+WO-0002,DIE-005,2024-01-23 23:00:00,High,Open,Priya Patel,Investigate Surface Galling: Adhesive wear on die face from sheet metal sliding under high pressure,2024-01-24
+WO-0036,DIE-001,2024-01-24 19:00:00,Medium,Completed,Amit Sharma,Die temperature sensor validation,2024-02-06
+WO-0003,DIE-003,2024-01-28 19:00:00,High,In Progress,Amit Sharma,Investigate Die Crack: Fatigue crack propagation in die insert due to cyclic stamping load,2024-01-30
+WO-0004,DIE-004,2024-01-29 03:00:00,Critical,In Progress,Deepak Joshi,Investigate Spring-back Defect: Excessive elastic recovery in stamped part due to worn die profile,2024-02-02
+WO-0005,DIE-003,2024-01-31 22:00:00,Medium,Overdue,Priya Patel,Investigate Spring-back Defect: Excessive elastic recovery in stamped part due to worn die profile,2024-02-02
+WO-0059,DIE-004,2024-02-02 07:00:00,Low,Completed,Priya Patel,Blank-holder pressure rebalancing,2024-02-15
+WO-0058,DIE-004,2024-02-04 09:00:00,Low,Overdue,Priya Patel,Die clearance measurement and adjustment,2024-02-08
+WO-0006,DIE-002,2024-02-06 17:00:00,High,Overdue,Suresh Nair,Investigate Misalignment: Punch-die clearance deviation caused by guide pin wear,2024-02-09
+WO-0070,DIE-005,2024-02-06 17:00:00,Low,Completed,Suresh Nair,Die temperature sensor validation,2024-02-19
+WO-0069,DIE-005,2024-02-07 03:00:00,Medium,Completed,Priya Patel,Blank-holder pressure rebalancing,2024-02-18
+WO-0007,DIE-003,2024-02-08 12:00:00,Critical,Overdue,Rajesh Kumar,Investigate Thermal Distortion: Uneven die temperature causing dimensional drift in stamped panel,2024-02-13
+WO-0008,DIE-001,2024-02-09 02:00:00,High,Completed,Suresh Nair,Investigate Slug Retention: Slug not ejecting from die cavity - proximity sensor triggered,2024-02-11
+WO-0009,DIE-001,2024-02-11 23:00:00,High,Open,Priya Patel,Investigate Die Crack: Fatigue crack propagation in die insert due to cyclic stamping load,2024-02-16
+WO-0047,DIE-002,2024-02-14 18:00:00,Low,In Progress,Suresh Nair,Blank-holder pressure rebalancing,2024-02-18
+WO-0052,DIE-003,2024-02-20 07:00:00,Medium,In Progress,Priya Patel,Blank-holder pressure rebalancing,2024-02-26
+WO-0071,DIE-005,2024-02-22 10:00:00,Low,Overdue,Amit Sharma,Die temperature sensor validation,2024-03-04
+WO-0037,DIE-001,2024-02-26 05:00:00,Low,Open,Suresh Nair,Blank-holder pressure rebalancing,2024-03-03
+WO-0010,DIE-002,2024-02-28 11:00:00,Critical,Open,Deepak Joshi,Investigate Slug Retention: Slug not ejecting from die cavity - proximity sensor triggered,2024-03-03
+WO-0064,DIE-005,2024-03-10 00:00:00,Medium,Completed,Suresh Nair,Die clearance measurement and adjustment,2024-03-15
+WO-0063,DIE-005,2024-03-15 04:00:00,Medium,Overdue,Amit Sharma,Blank-holder pressure rebalancing,2024-03-20
+WO-0011,DIE-005,2024-03-17 01:00:00,High,In Progress,Priya Patel,Investigate Spring-back Defect: Excessive elastic recovery in stamped part due to worn die profile,2024-03-21
+WO-0040,DIE-001,2024-03-18 18:00:00,Low,Completed,Priya Patel,Proximity sensor functional test,2024-04-01
+WO-0051,DIE-003,2024-03-19 00:00:00,Medium,Overdue,Priya Patel,Scheduled die tryout and panel quality audit,2024-03-26
+WO-0038,DIE-001,2024-03-19 20:00:00,Low,In Progress,Deepak Joshi,Proximity sensor functional test,2024-03-22
+WO-0012,DIE-001,2024-03-24 12:00:00,Low,Open,Rajesh Kumar,Investigate Spring-back Defect: Excessive elastic recovery in stamped part due to worn die profile,2024-03-28
+WO-0013,DIE-001,2024-03-28 15:00:00,Critical,Overdue,Suresh Nair,Investigate Surface Galling: Adhesive wear on die face from sheet metal sliding under high pressure,2024-04-01
+WO-0014,DIE-002,2024-04-03 23:00:00,Low,Overdue,Deepak Joshi,Investigate Cushion Pressure Loss: Hydraulic cushion seal degradation causing uneven blank hold-down,2024-04-04
+WO-0015,DIE-005,2024-04-04 12:00:00,Low,Open,Deepak Joshi,Investigate Surface Galling: Adhesive wear on die face from sheet metal sliding under high pressure,2024-04-09
+WO-0016,DIE-004,2024-04-05 05:00:00,High,Overdue,Deepak Joshi,Investigate Slug Retention: Slug not ejecting from die cavity - proximity sensor triggered,2024-04-09
+WO-0017,DIE-002,2024-04-08 18:00:00,Critical,Completed,Amit Sharma,Investigate Surface Galling: Adhesive wear on die face from sheet metal sliding under high pressure,2024-04-11
+WO-0018,DIE-002,2024-04-09 01:00:00,High,Open,Deepak Joshi,Investigate Cushion Pressure Loss: Hydraulic cushion seal degradation causing uneven blank hold-down,2024-04-10
+WO-0019,DIE-003,2024-04-12 17:00:00,High,In Progress,Suresh Nair,Investigate Die Crack: Fatigue crack propagation in die insert due to cyclic stamping load,2024-04-16
+WO-0020,DIE-005,2024-04-21 01:00:00,Critical,In Progress,Rajesh Kumar,Investigate Surface Galling: Adhesive wear on die face from sheet metal sliding under high pressure,2024-04-24
+WO-0021,DIE-005,2024-04-21 09:00:00,Critical,In Progress,Amit Sharma,Investigate Thermal Distortion: Uneven die temperature causing dimensional drift in stamped panel,2024-04-24
+WO-0055,DIE-003,2024-04-22 05:00:00,Medium,In Progress,Priya Patel,Proximity sensor functional test,2024-05-04
+WO-0022,DIE-002,2024-04-28 19:00:00,High,Overdue,Amit Sharma,Investigate Die Crack: Fatigue crack propagation in die insert due to cyclic stamping load,2024-05-03
+WO-0062,DIE-004,2024-05-06 15:00:00,Low,Overdue,Amit Sharma,Proximity sensor functional test,2024-05-19
+WO-0023,DIE-003,2024-05-07 13:00:00,Medium,In Progress,Suresh Nair,Investigate Spring-back Defect: Excessive elastic recovery in stamped part due to worn die profile,2024-05-11
+WO-0024,DIE-003,2024-05-08 09:00:00,High,Overdue,Rajesh Kumar,Investigate Surface Galling: Adhesive wear on die face from sheet metal sliding under high pressure,2024-05-11
+WO-0025,DIE-005,2024-05-19 04:00:00,High,Open,Suresh Nair,Investigate Slug Retention: Slug not ejecting from die cavity - proximity sensor triggered,2024-05-23
+WO-0054,DIE-003,2024-05-21 10:00:00,Low,Open,Amit Sharma,Die temperature sensor validation,2024-06-03
+WO-0041,DIE-002,2024-05-26 06:00:00,Medium,Open,Priya Patel,Proximity sensor functional test,2024-06-05
+WO-0042,DIE-002,2024-06-04 02:00:00,Medium,Overdue,Priya Patel,Die temperature sensor validation,2024-06-09
+WO-0039,DIE-001,2024-06-05 07:00:00,Medium,Completed,Priya Patel,Die clearance measurement and adjustment,2024-06-19
+WO-0026,DIE-002,2024-06-09 21:00:00,Low,Overdue,Priya Patel,Investigate Spring-back Defect: Excessive elastic recovery in stamped part due to worn die profile,2024-06-10
+WO-0057,DIE-003,2024-06-10 07:00:00,Low,In Progress,Deepak Joshi,Die clearance measurement and adjustment,2024-06-16
+WO-0027,DIE-004,2024-06-10 21:00:00,Low,Completed,Rajesh Kumar,Investigate Thermal Distortion: Uneven die temperature causing dimensional drift in stamped panel,2024-06-12
+WO-0043,DIE-002,2024-06-13 02:00:00,Low,Completed,Rajesh Kumar,Die temperature sensor validation,2024-06-18
+WO-0066,DIE-005,2024-06-13 06:00:00,Low,Overdue,Deepak Joshi,Die temperature sensor validation,2024-06-24
+WO-0061,DIE-004,2024-06-15 10:00:00,Medium,Open,Suresh Nair,Scheduled die tryout and panel quality audit,2024-06-18
+WO-0060,DIE-004,2024-06-18 05:00:00,Low,Overdue,Suresh Nair,Scheduled die tryout and panel quality audit,2024-06-29
+WO-0067,DIE-005,2024-06-19 05:00:00,Medium,In Progress,Amit Sharma,Die temperature sensor validation,2024-06-29
+WO-0048,DIE-002,2024-06-21 16:00:00,Medium,Open,Amit Sharma,Blank-holder pressure rebalancing,2024-06-29
+WO-0046,DIE-002,2024-06-22 08:00:00,Low,Open,Suresh Nair,Blank-holder pressure rebalancing,2024-06-27
+WO-0049,DIE-002,2024-06-25 00:00:00,Low,Open,Priya Patel,Blank-holder pressure rebalancing,2024-07-07
+WO-0056,DIE-003,2024-07-03 06:00:00,Medium,Completed,Deepak Joshi,Scheduled die tryout and panel quality audit,2024-07-17
+WO-0028,DIE-004,2024-07-05 04:00:00,Medium,In Progress,Suresh Nair,Investigate Slug Retention: Slug not ejecting from die cavity - proximity sensor triggered,2024-07-08
+WO-0030,DIE-001,2024-07-08 20:00:00,High,Overdue,Suresh Nair,Investigate Die Crack: Fatigue crack propagation in die insert due to cyclic stamping load,2024-07-11
+WO-0029,DIE-001,2024-07-08 21:00:00,High,In Progress,Deepak Joshi,Investigate Thermal Distortion: Uneven die temperature causing dimensional drift in stamped panel,2024-07-11
+WO-0035,DIE-001,2024-07-10 11:00:00,Medium,In Progress,Rajesh Kumar,Blank-holder pressure rebalancing,2024-07-20
+WO-0050,DIE-003,2024-07-11 10:00:00,Low,Completed,Deepak Joshi,Blank-holder pressure rebalancing,2024-07-23
+WO-0031,DIE-005,2024-07-12 19:00:00,Critical,Open,Amit Sharma,Investigate Surface Galling: Adhesive wear on die face from sheet metal sliding under high pressure,2024-07-15
+WO-0032,DIE-001,2024-07-14 12:00:00,High,Overdue,Priya Patel,Investigate Surface Galling: Adhesive wear on die face from sheet metal sliding under high pressure,2024-07-18
+WO-0034,DIE-001,2024-07-14 14:00:00,Low,Overdue,Priya Patel,Blank-holder pressure rebalancing,2024-07-22
+WO-0033,DIE-005,2024-07-14 16:00:00,Low,Overdue,Deepak Joshi,Investigate Spring-back Defect: Excessive elastic recovery in stamped part due to worn die profile,2024-07-15
+WO-0068,DIE-005,2024-07-20 00:00:00,Medium,In Progress,Suresh Nair,Die temperature sensor validation,2024-08-01
+WO-0045,DIE-002,2024-07-22 14:00:00,Medium,Completed,Priya Patel,Die clearance measurement and adjustment,2024-08-03
