@@ -89,11 +89,13 @@ while running and pos < total:
 
     # charts
     for sensor in selected_sensors:
+        x_vals = [t.to_pydatetime() for t in window["Timestamp"]]
+        y_vals = [float(v) for v in window[sensor]]
         fig = go.Figure()
         fig.add_trace(
             go.Scatter(
-                x=window["Timestamp"],
-                y=window[sensor],
+                x=x_vals,
+                y=y_vals,
                 mode="lines",
                 name=sensor,
                 line=dict(width=2),
@@ -103,8 +105,8 @@ while running and pos < total:
         if not anomalies.empty:
             fig.add_trace(
                 go.Scatter(
-                    x=anomalies["Timestamp"],
-                    y=anomalies[sensor],
+                    x=[t.to_pydatetime() for t in anomalies["Timestamp"]],
+                    y=[float(v) for v in anomalies[sensor]],
                     mode="markers",
                     name="Anomaly",
                     marker=dict(color="red", size=7, symbol="x"),

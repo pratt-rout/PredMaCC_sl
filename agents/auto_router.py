@@ -1,9 +1,5 @@
 """Auto-router: uses Cortex COMPLETE to pick the best agent for a query."""
 
-import json
-
-import streamlit as st
-
 from agents.base import Agent, Reply, get_session
 from agents.health_analyst import health_analyst
 from agents.knowledge import maintenance_knowledge
@@ -46,8 +42,16 @@ auto_router = Agent(
 )
 
 
-def auto_run(history: list) -> Reply:
+def auto_run(history: list, scope: str = "") -> Reply:
+    """Route to one agent and run it. Never raises — mirrors Agent.run's contract."""
     query = history[-1]["content"]
-    chosen = _pick_agent(query)
-    st.info(f"Routed to **{chosen.name}**")
-    return chosen.run(history)
+    note = ""
+    try:
+        chosen = _pick_agent(query)
+    except Exception as e:
+        chosen = health_analyst
+        note = f"Router unavailable ({e}) — fell back to {chosen.name}."
+
+    reply = chosen.run(history, scope)
+    reply.routed_to = note or f"Routed to {chosen.name}"
+    return reply

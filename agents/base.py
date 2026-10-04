@@ -18,6 +18,7 @@ class Reply:
     charts: list = field(default_factory=list)
     tools: list = field(default_factory=list)
     suggestions: list = field(default_factory=list)
+    routed_to: str = ""
 
 
 def get_session():
@@ -74,6 +75,13 @@ def parse_response(raw: str) -> tuple:
     return Reply(text=text, charts=charts, tools=tools, suggestions=suggestions), data.get("metadata", {})
 
 
+def clear_threads(scope: str) -> None:
+    """Drop every Cortex thread stored under one dropdown scope."""
+    prefix = f"_thread_{scope}|"
+    for key in [k for k in list(st.session_state) if isinstance(k, str) and k.startswith(prefix)]:
+        del st.session_state[key]
+
+
 @dataclass
 class Agent:
     name: str
@@ -81,15 +89,16 @@ class Agent:
     agent_fqn: str
     starter_questions: list = field(default_factory=list)
 
-    @property
-    def _thread_key(self) -> str:
-        return f"_thread_{self.agent_fqn}"
+    def thread_key(self, scope: str = "") -> str:
+        """Thread state is scoped to the dropdown entry, so Auto and direct picks stay separate."""
+        return f"_thread_{scope}|{self.agent_fqn}"
 
-    def run(self, history: list) -> Reply:
+    def run(self, history: list, scope: str = "") -> Reply:
         """Send the latest user message to the agent. Multi-turn context is kept in a Cortex thread."""
+        key = self.thread_key(scope)
         if len(history) <= 1:
-            st.session_state.pop(self._thread_key, None)  # new conversation
-        thread = st.session_state.get(self._thread_key)
+            st.session_state.pop(key, None)  # new conversation
+        thread = st.session_state.get(key)
 
         body = {
             "messages": [{"role": "user", "content": [{"type": "text", "text": history[-1]["content"]}]}]
@@ -107,6 +116,7 @@ class Agent:
         except AgentError as e:
             return Reply(text=f"**{self.name} is unavailable.** {e}")
         except Exception as e:
+            st.session_state.pop(key, None)  # drop a possibly stale thread so the next try is clean
             return Reply(
                 text=(
                     f"**{self.name} call failed.** {e}\n\n"
@@ -116,7 +126,7 @@ class Agent:
             )
 
         if meta.get("thread_id") and meta.get("assistant_message_id"):
-            st.session_state[self._thread_key] = {
+            st.session_state[key] = {
                 "thread_id": meta["thread_id"],
                 "parent_message_id": meta["assistant_message_id"],
             }
