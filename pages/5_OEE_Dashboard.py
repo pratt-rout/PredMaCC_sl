@@ -4,7 +4,6 @@ import plotly.graph_objects as go
 import pandas as pd
 from utils.data_loader import load_sensor_data, load_equipment_master, load_maintenance_log, load_failure_events
 from utils.analytics import compute_oee
-from utils.ui import chat_fab
 
 st.header("OEE Dashboard — Stamping Press Dies")
 
@@ -90,5 +89,3 @@ fig4 = px.pie(cost_by_type, values="Cost_INR", names="Type", title="Maintenance 
               color_discrete_sequence=px.colors.qualitative.Set2)
 fig4.update_layout(height=350)
 st.plotly_chart(fig4, use_container_width=True)
-
-chat_fab()

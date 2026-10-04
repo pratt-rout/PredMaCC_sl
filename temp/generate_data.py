@@ -13,7 +13,7 @@ import random
 
 random.seed(42)
 
-BASE = os.path.dirname(os.path.abspath(__file__))
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # project root (script lives in temp/)
 DATASET_DIR = os.path.join(BASE, "dataset")
 os.makedirs(DATASET_DIR, exist_ok=True)
 

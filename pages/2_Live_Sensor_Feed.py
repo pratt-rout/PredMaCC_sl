@@ -2,8 +2,7 @@ import time
 import streamlit as st
 import plotly.graph_objects as go
 from utils.data_loader import load_sensor_data, load_equipment_master
-from utils.analytics import SENSOR_COLS, SENSOR_THRESHOLDS
-from utils.ui import chat_fab
+from utils.analytics import SENSOR_COLS
 
 st.header("Live Sensor Feed")
 
@@ -111,22 +110,15 @@ while running and pos < total:
                     marker=dict(color="red", size=7, symbol="x"),
                 )
             )
-        th = SENSOR_THRESHOLDS.get(sensor, {})
-        if "warn" in th and "warn_low" not in th:
-            fig.add_hline(y=th["warn"], line_dash="dash", line_color="orange")
-            fig.add_hline(y=th["critical"], line_dash="dash", line_color="red")
-        elif "warn_low" in th:
-            fig.add_hline(y=th["warn_low"], line_dash="dash", line_color="orange")
-            fig.add_hline(y=th["warn_high"], line_dash="dash", line_color="orange")
-            fig.add_hline(y=th["critical_low"], line_dash="dash", line_color="red")
-            fig.add_hline(y=th["critical_high"], line_dash="dash", line_color="red")
         fig.update_layout(
             title=sensor.replace("_", " "),
             height=250,
             margin=dict(l=40, r=20, t=40, b=30),
             xaxis_title="",
             yaxis_title="",
+            showlegend=False,
         )
+        fig.update_yaxes(autorange=True)
         chart_placeholders[sensor].plotly_chart(fig, use_container_width=True)
 
     pos += 1
@@ -137,5 +129,3 @@ if pos >= total:
     st.session_state[state_key] = window_size
 elif not running:
     status_bar.info(f"Paused at reading {pos}/{total}. Press ▶ Play to resume.")
-
-chat_fab()

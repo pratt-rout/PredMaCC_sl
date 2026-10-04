@@ -49,5 +49,5 @@ auto_router = Agent(
 def auto_run(history: list) -> Reply:
     query = history[-1]["content"]
     chosen = _pick_agent(query)
-    st.toast(f"Routed to **{chosen.name}**")
+    st.info(f"Routed to **{chosen.name}**")
     return chosen.run(history)

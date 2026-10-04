@@ -68,7 +68,7 @@ The SOPs in `knowledge/` are **sample placeholders**. The sensor data is synthet
 ### Refreshing data and documents
 
 ```bash
-python generate_data.py            # regenerate CSVs (then re-upload with snow stage copy + COPY INTO)
+python temp/generate_data.py       # regenerate CSVs (then re-upload with snow stage copy + COPY INTO)
 python scripts/load_knowledge.py   # re-chunk knowledge/ and reload KNOWLEDGE_CHUNKS (search index refreshes itself)
 ```
 

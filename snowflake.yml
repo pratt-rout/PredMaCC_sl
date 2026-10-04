@@ -7,10 +7,11 @@ entities:
       database: PREDMACC_DB
       schema: APP
     query_warehouse: COMPUTE_WH
-    main_file: streamlit_app.py
+    main_file: PredMACC.py
     artifacts:
-      - streamlit_app.py
+      - PredMACC.py
       - environment.yml
+      - PredMACC.png
       - dataset/
       - pages/
       - utils/

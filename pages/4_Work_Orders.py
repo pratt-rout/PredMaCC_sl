@@ -3,7 +3,6 @@ import plotly.express as px
 import pandas as pd
 from utils.data_loader import load_work_orders, load_equipment_master, load_sensor_data
 from utils.analytics import compute_failure_probability
-from utils.ui import chat_fab
 
 st.header("Work Orders — Die Maintenance")
 
@@ -74,5 +73,3 @@ for _, eq in equipment_df.iterrows():
             f"**{eq['Name']}** ({eq['Equipment_ID']}) — {pred['probability']:.0%} failure risk. "
             f"Factors: {factors_str}. Consider scheduling die inspection or preventive tryout."
         )
-
-chat_fab()
