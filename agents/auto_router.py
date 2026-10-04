@@ -25,9 +25,10 @@ Reply with the single key word, nothing else."""
 
 def _pick_agent(query: str) -> Agent:
     session = get_session()
-    prompt = json.dumps(f"{_CLASSIFY_PROMPT}\n\nUser question: {query}")
+    prompt = f"{_CLASSIFY_PROMPT}\n\nUser question: {query}"
     raw = session.sql(
-        f"SELECT SNOWFLAKE.CORTEX.COMPLETE('mistral-large2', {prompt}) AS R"
+        "SELECT SNOWFLAKE.CORTEX.COMPLETE('openai-gpt-5-mini', ?) AS R",
+        params=[prompt],
     ).collect()[0]["R"]
     key = raw.strip().strip('"').strip().lower()
     return _AGENTS_BY_KEY.get(key, health_analyst)

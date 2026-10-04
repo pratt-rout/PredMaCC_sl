@@ -3,16 +3,14 @@ entities:
   predmacc_streamlit:
     type: streamlit
     identifier:
-      name: PREDMACC_STREAMLIT
+      name: PREDMACC
       database: PREDMACC_DB
       schema: APP
     query_warehouse: COMPUTE_WH
-    runtime_name: SYSTEM$ST_CONTAINER_RUNTIME_PY3_11
-    compute_pool: SYSTEM_COMPUTE_POOL_CPU
     main_file: streamlit_app.py
     artifacts:
       - streamlit_app.py
-      - requirements.txt
+      - environment.yml
       - dataset/
       - pages/
       - utils/

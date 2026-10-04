@@ -48,40 +48,6 @@ Manufacturers lose value to unplanned downtime because OT sensor data sits apart
 - Slug Retention (ejection failure)
 - Cushion Pressure Loss (hydraulic seal degradation)
 
-## Project Structure
-
-```
-PredMaCC_sl/
-├── streamlit_app.py              # Main entry point + global filters
-├── pages/
-│   ├── 1_Command_Center.py       # Alert triage, health scores, failure timeline
-│   ├── 2_Sensor_Monitoring.py    # Sensor time-series, thresholds, correlation
-│   ├── 3_Predictive_Analytics.py # Failure prediction, root cause, RUL
-│   ├── 4_Work_Orders.py          # WO management, auto-suggestions
-│   ├── 5_OEE_Dashboard.py        # OEE gauges, Pareto, cost breakdown
-│   └── 6_AI_Assistant.py         # Chat with the three Cortex Agents
-├── agents/
-│   ├── base.py                   # Agent class, DATA_AGENT_RUN call, response parsing
-│   ├── health_analyst.py         # one small file per agent
-│   ├── root_cause.py
-│   └── knowledge.py
-├── knowledge/                    # SOPs / manuals (.md, .txt, .pdf) for the knowledge agent
-├── scripts/load_knowledge.py     # chunk knowledge/ and reload KNOWLEDGE_CHUNKS
-├── cortex_project/               # agent + semantic view specs (agent-studio workspace)
-├── utils/
-│   ├── data_loader.py            # Cached loaders for all datasets
-│   ├── analytics.py              # OEE, anomaly detection, failure prediction
-│   └── alerts.py                 # Threshold-based alert generation
-├── dataset/
-│   ├── sensor_data.csv           # 5000 rows, 5 dies, 7 sensors
-│   ├── equipment_master.csv      # 5 dies with type and criticality
-│   ├── maintenance_log.csv       # Preventive + corrective records
-│   ├── work_orders.csv           # Work orders with status/priority
-│   └── failure_events.csv        # Historical failures with root causes
-├── generate_data.py              # Dataset generator (correlated anomalies)
-├── requirements.txt
-└── snowflake.yml                 # SiS deployment manifest
-```
 
 ## AI Assistant (Cortex Agents)
 
@@ -110,14 +76,6 @@ python scripts/load_knowledge.py   # re-chunk knowledge/ and reload KNOWLEDGE_CH
 
 `SNOWFLAKE.CORTEX_AGENT_USER` database role, `USAGE` on the three agents, `SELECT` on the tables, `USAGE` on the semantic view, search service and procedure, and `USAGE` on `COMPUTE_WH`.
 
-## Running Locally
-
-```bash
-pip install -r requirements.txt snowflake-snowpark-python
-set SNOWFLAKE_DEFAULT_CONNECTION_NAME=YRUZETZ-VG76067   # or configure .streamlit/secrets.toml
-streamlit run streamlit_app.py
-```
-
 The dashboards read the local CSVs. The AI Assistant page needs a Snowflake connection.
 
 ## Deployment
@@ -129,13 +87,3 @@ Deployed to **Streamlit in Snowflake (SiS)** using container runtime.
 - Compute pool: `SYSTEM_COMPUTE_POOL_CPU`
 - Query warehouse: `COMPUTE_WH`
 
-```bash
-uvx --from snowflake-cli snow streamlit deploy --connection YRUZETZ-VG76067 --replace
-```
-
-Container runtime only ships Streamlit and Snowpark, so `plotly` and `pandas` come from `requirements.txt`, which needs the Snowflake PyPI mirror attached to the app:
-
-```sql
-GRANT DATABASE ROLE SNOWFLAKE.PYPI_REPOSITORY_USER TO ROLE <app_owner_role>;
-ALTER STREAMLIT PREDMACC_DB.APP.PREDMACC_STREAMLIT SET ARTIFACT_REPOSITORIES = (snowflake.snowpark.pypi_shared_repository);
-```
