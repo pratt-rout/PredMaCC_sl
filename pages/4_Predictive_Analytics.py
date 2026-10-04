@@ -3,6 +3,7 @@ import plotly.express as px
 import pandas as pd
 from utils.data_loader import load_sensor_data, load_equipment_master, load_failure_events
 from utils.analytics import compute_failure_probability, generate_root_cause_summary
+from utils.ui import chat_fab
 
 st.header("Predictive Analytics — Die Failure Prediction")
 
@@ -73,3 +74,5 @@ else:
     fig.update_layout(height=300, showlegend=False)
     st.plotly_chart(fig, use_container_width=True)
     st.dataframe(eq_failures.sort_values("Timestamp", ascending=False), use_container_width=True)
+
+chat_fab()

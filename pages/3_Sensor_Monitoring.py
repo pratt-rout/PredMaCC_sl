@@ -3,6 +3,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from utils.data_loader import load_sensor_data, load_equipment_master
 from utils.analytics import SENSOR_COLS, SENSOR_THRESHOLDS
+from utils.ui import chat_fab
 
 st.header("Die Sensor Monitoring")
 
@@ -74,3 +75,5 @@ st.plotly_chart(fig, use_container_width=True)
 
 with st.expander("Raw Sensor Data"):
     st.dataframe(eq_data, use_container_width=True)
+
+chat_fab()

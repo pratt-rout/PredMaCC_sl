@@ -1,0 +1,22 @@
+version: 1
+artifacts:
+  - path: DIE_MAINTENANCE_SV.sv.yaml
+    type: semantic_view
+    targets:
+      default:
+        object: PREDMACC_DB.APP.DIE_MAINTENANCE_SV
+  - path: DIE_HEALTH_ANALYST.agent.yaml
+    type: cortex_agent
+    targets:
+      default:
+        object: PREDMACC_DB.APP.DIE_HEALTH_ANALYST
+  - path: ROOT_CAUSE_INVESTIGATOR.agent.yaml
+    type: cortex_agent
+    targets:
+      default:
+        object: PREDMACC_DB.APP.ROOT_CAUSE_INVESTIGATOR
+  - path: MAINTENANCE_KNOWLEDGE_AGENT.agent.yaml
+    type: cortex_agent
+    targets:
+      default:
+        object: PREDMACC_DB.APP.MAINTENANCE_KNOWLEDGE_AGENT

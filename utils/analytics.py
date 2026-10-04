@@ -122,11 +122,11 @@ def compute_oee(sensor_df, maintenance_df, failure_df, equipment_id) -> dict:
     downtime_hrs = eq_failures["Downtime_hrs"].sum() + eq_maint["Duration_hrs"].sum() * 0.3
     availability = max(0, (total_hours - downtime_hrs) / total_hours)
 
-    # Performance: actual stroke rate vs ideal
+    # Performance: actual strokes vs ideal (10 strokes/min = 600/h) over hours the press ran
     if "Stroke_Count" in eq_sensor.columns:
-        total_strokes = eq_sensor["Stroke_Count"].iloc[-1]
-        ideal_strokes = total_hours * 10  # 10 strokes/min ideal
-        performance = min(total_strokes / ideal_strokes, 1.0) if ideal_strokes > 0 else 1.0
+        strokes = eq_sensor.sort_values("Timestamp")["Stroke_Count"].diff().fillna(0)
+        run_hours = int((strokes > 0).sum())
+        performance = min(strokes.sum() / (run_hours * 600), 1.0) if run_hours > 0 else 0.0
     else:
         performance = 0.92
 

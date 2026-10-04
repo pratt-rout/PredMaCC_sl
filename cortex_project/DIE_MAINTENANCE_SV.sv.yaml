@@ -1,0 +1,340 @@
+name: DIE_MAINTENANCE_SV
+description: >-
+  Stamping press die maintenance for car door panels. Hourly OT sensor readings per die
+  (force, temperature, cushion pressure, strain, vibration, ram position, proximity) joined with
+  ERP-style failure events, maintenance log and work orders. All tables join on EQUIPMENT_ID
+  (a die such as DIE-001). Data covers 2024-01-01 to 2024-02-11.
+tables:
+  - name: EQUIPMENT_MASTER
+    description: One row per die (tooling asset) with type, location and business criticality.
+    base_table:
+      database: PREDMACC_DB
+      schema: APP
+      table: EQUIPMENT_MASTER
+    primary_key:
+      columns:
+        - EQUIPMENT_ID
+    dimensions:
+      - name: EQUIPMENT_ID
+        synonyms: [die, die id, die number, equipment, asset]
+        description: Unique die identifier, for example DIE-001.
+        expr: EQUIPMENT_ID
+        data_type: VARCHAR
+        sample_values: [DIE-001, DIE-002, DIE-003, DIE-004, DIE-005]
+      - name: NAME
+        synonyms: [die name, panel, door panel]
+        description: Descriptive die name, for example Front-Left Door Panel Die.
+        expr: NAME
+        data_type: VARCHAR
+      - name: _TYPE
+        synonyms: [die type]
+        description: Die type - Progressive Die, Transfer Die or Tandem Die.
+        expr: 'TYPE'
+        data_type: VARCHAR
+        sample_values: [Progressive Die, Transfer Die, Tandem Die]
+      - name: LOCATION
+        synonyms: [press line, station]
+        description: Press line and station where the die is installed.
+        expr: LOCATION
+        data_type: VARCHAR
+      - name: CRITICALITY
+        synonyms: [importance, criticality level]
+        description: Business criticality of the die - Critical or High.
+        expr: CRITICALITY
+        data_type: VARCHAR
+        sample_values: [Critical, High]
+    time_dimensions:
+      - name: INSTALL_DATE
+        description: Date the die was installed.
+        expr: INSTALL_DATE
+        data_type: DATE
+  - name: SENSOR_DATA
+    description: Hourly OT sensor readings per die from the stamping press (7 sensors plus cumulative stroke count).
+    base_table:
+      database: PREDMACC_DB
+      schema: APP
+      table: SENSOR_DATA
+    dimensions:
+      - name: EQUIPMENT_ID
+        description: Die identifier the reading belongs to.
+        expr: EQUIPMENT_ID
+        data_type: VARCHAR
+    time_dimensions:
+      - name: TIMESTAMP
+        synonyms: [reading time, sensor time, time]
+        description: Hour of the sensor reading.
+        expr: TIMESTAMP
+        data_type: TIMESTAMP_NTZ
+    facts:
+      - name: STROKE_COUNT
+        synonyms: [strokes, cumulative strokes]
+        description: Cumulative press stroke count for the die. Flat (no increase) while the press is down.
+        expr: STROKE_COUNT
+        data_type: NUMBER
+      - name: IS_ANOMALY
+        synonyms: [anomaly flag]
+        description: 1 when any sensor is outside its warning limit in that hour, otherwise 0.
+        expr: IS_ANOMALY
+        data_type: NUMBER
+      - name: DIE_FORCE_KN
+        synonyms: [force, die force, press force, tonnage]
+        description: Die closing force in kilonewtons. Nominal about 850; warning below 700 or above 1000.
+        expr: DIE_FORCE_KN
+        data_type: FLOAT
+      - name: DIE_TEMPERATURE_C
+        synonyms: [temperature, die temperature, temp]
+        description: Die surface temperature in degrees Celsius. Nominal about 45; warning above 60, critical above 70.
+        expr: DIE_TEMPERATURE_C
+        data_type: FLOAT
+      - name: CUSHION_PRESSURE_BAR
+        synonyms: [pressure, cushion pressure, blank holder pressure]
+        description: Hydraulic cushion (blank-holder) pressure in bar. Nominal about 12; warning below 9.5 or above 15.
+        expr: CUSHION_PRESSURE_BAR
+        data_type: FLOAT
+      - name: DIE_STRAIN_UE
+        synonyms: [strain, die strain, microstrain]
+        description: Micro-strain on the die insert. Nominal about 1200; warning above 1500, critical above 1700.
+        expr: DIE_STRAIN_UE
+        data_type: FLOAT
+      - name: VIBRATION_G
+        synonyms: [vibration, vibration rms]
+        description: Vibration level in g (RMS). Nominal about 0.8; warning above 2.0, critical above 2.5.
+        expr: VIBRATION_G
+        data_type: FLOAT
+      - name: RAM_POSITION_MM
+        synonyms: [ram position, position, bottom dead centre deviation]
+        description: Ram bottom-dead-centre deviation in millimetres. Nominal about 0; warning beyond +/-0.8.
+        expr: RAM_POSITION_MM
+        data_type: FLOAT
+      - name: PROXIMITY_MM
+        synonyms: [proximity, die clearance, clearance, punch to die clearance]
+        description: Punch-to-die clearance from proximity sensors in millimetres. Nominal about 2.5; warning outside 1.2 to 3.8.
+        expr: PROXIMITY_MM
+        data_type: FLOAT
+    metrics:
+      - name: AVG_DIE_FORCE_KN
+        description: Average die force in kN.
+        expr: AVG(DIE_FORCE_KN)
+      - name: AVG_DIE_TEMPERATURE_C
+        description: Average die temperature in C.
+        expr: AVG(DIE_TEMPERATURE_C)
+      - name: MAX_DIE_TEMPERATURE_C
+        description: Maximum die temperature in C.
+        expr: MAX(DIE_TEMPERATURE_C)
+      - name: AVG_CUSHION_PRESSURE_BAR
+        description: Average cushion pressure in bar.
+        expr: AVG(CUSHION_PRESSURE_BAR)
+      - name: AVG_DIE_STRAIN_UE
+        description: Average die strain in microstrain.
+        expr: AVG(DIE_STRAIN_UE)
+      - name: MAX_DIE_STRAIN_UE
+        description: Maximum die strain in microstrain.
+        expr: MAX(DIE_STRAIN_UE)
+      - name: AVG_VIBRATION_G
+        description: Average vibration in g.
+        expr: AVG(VIBRATION_G)
+      - name: MAX_VIBRATION_G
+        description: Maximum vibration in g.
+        expr: MAX(VIBRATION_G)
+      - name: AVG_RAM_POSITION_MM
+        description: Average ram position deviation in mm.
+        expr: AVG(RAM_POSITION_MM)
+      - name: AVG_PROXIMITY_MM
+        description: Average punch-to-die clearance in mm.
+        expr: AVG(PROXIMITY_MM)
+      - name: ANOMALY_RATE
+        description: Share of sensor hours flagged as anomalous (0 to 1).
+        expr: AVG(IS_ANOMALY)
+      - name: ANOMALY_HOURS
+        description: Number of sensor hours flagged as anomalous.
+        expr: SUM(IS_ANOMALY)
+  - name: FAILURE_EVENTS
+    description: Recorded die failures with failure mode, recorded root cause and downtime (ERP/maintenance context).
+    base_table:
+      database: PREDMACC_DB
+      schema: APP
+      table: FAILURE_EVENTS
+    primary_key:
+      columns:
+        - EVENT_ID
+    dimensions:
+      - name: EVENT_ID
+        description: Unique failure event identifier.
+        expr: EVENT_ID
+        data_type: VARCHAR
+      - name: EQUIPMENT_ID
+        description: Die that failed.
+        expr: EQUIPMENT_ID
+        data_type: VARCHAR
+      - name: FAILURE_MODE
+        synonyms: [failure type, failure, defect type]
+        description: Category of failure.
+        expr: FAILURE_MODE
+        data_type: VARCHAR
+        sample_values: [Die Crack, Surface Galling, Misalignment, Thermal Distortion, Spring-back Defect, Slug Retention, Cushion Pressure Loss]
+      - name: ROOT_CAUSE
+        synonyms: [cause, recorded cause]
+        description: Recorded root cause text for the failure.
+        expr: ROOT_CAUSE
+        data_type: VARCHAR
+    time_dimensions:
+      - name: TIMESTAMP
+        synonyms: [failure time, failure date, when it failed]
+        description: Time the failure occurred.
+        expr: TIMESTAMP
+        data_type: TIMESTAMP_NTZ
+    facts:
+      - name: DOWNTIME_HRS
+        synonyms: [downtime, downtime hours]
+        description: Hours the die/press was down because of the failure.
+        expr: DOWNTIME_HRS
+        data_type: FLOAT
+    metrics:
+      - name: FAILURE_COUNT
+        synonyms: [number of failures]
+        description: Number of failure events.
+        expr: COUNT(EVENT_ID)
+      - name: TOTAL_DOWNTIME_HRS
+        synonyms: [total downtime]
+        description: Total downtime hours from failures.
+        expr: SUM(DOWNTIME_HRS)
+      - name: AVG_DOWNTIME_HRS
+        description: Average downtime hours per failure.
+        expr: AVG(DOWNTIME_HRS)
+  - name: MAINTENANCE_LOG
+    description: Maintenance activities (preventive, corrective, breakdown) with duration and cost in INR.
+    base_table:
+      database: PREDMACC_DB
+      schema: APP
+      table: MAINTENANCE_LOG
+    primary_key:
+      columns:
+        - MAINTENANCE_ID
+    dimensions:
+      - name: MAINTENANCE_ID
+        description: Unique maintenance record identifier.
+        expr: MAINTENANCE_ID
+        data_type: VARCHAR
+      - name: EQUIPMENT_ID
+        description: Die the maintenance was performed on.
+        expr: EQUIPMENT_ID
+        data_type: VARCHAR
+      - name: _TYPE
+        synonyms: [maintenance type]
+        description: Maintenance type - Preventive, Corrective or Breakdown.
+        expr: 'TYPE'
+        data_type: VARCHAR
+        sample_values: [Preventive, Corrective, Breakdown]
+      - name: DESCRIPTION
+        description: What was done.
+        expr: DESCRIPTION
+        data_type: VARCHAR
+    time_dimensions:
+      - name: DATE
+        synonyms: [maintenance date]
+        description: Date of the maintenance.
+        expr: DATE
+        data_type: DATE
+    facts:
+      - name: DURATION_HRS
+        description: Maintenance duration in hours.
+        expr: DURATION_HRS
+        data_type: FLOAT
+      - name: COST_INR
+        synonyms: [cost, maintenance cost, spend]
+        description: Maintenance cost in Indian rupees.
+        expr: COST_INR
+        data_type: FLOAT
+    metrics:
+      - name: TOTAL_MAINTENANCE_COST_INR
+        description: Total maintenance cost in INR.
+        expr: SUM(COST_INR)
+      - name: TOTAL_MAINTENANCE_HRS
+        description: Total maintenance hours.
+        expr: SUM(DURATION_HRS)
+      - name: MAINTENANCE_EVENT_COUNT
+        description: Number of maintenance records.
+        expr: COUNT(MAINTENANCE_ID)
+  - name: WORK_ORDERS
+    description: Maintenance work orders with priority, status, assignee and due date.
+    base_table:
+      database: PREDMACC_DB
+      schema: APP
+      table: WORK_ORDERS
+    primary_key:
+      columns:
+        - WO_ID
+    dimensions:
+      - name: WO_ID
+        synonyms: [work order id, work order]
+        description: Unique work order identifier.
+        expr: WO_ID
+        data_type: VARCHAR
+      - name: EQUIPMENT_ID
+        description: Die the work order is for.
+        expr: EQUIPMENT_ID
+        data_type: VARCHAR
+      - name: PRIORITY
+        description: Work order priority.
+        expr: PRIORITY
+        data_type: VARCHAR
+        sample_values: [Low, Medium, High, Critical]
+      - name: STATUS
+        synonyms: [work order status, state]
+        description: Work order status.
+        expr: STATUS
+        data_type: VARCHAR
+        sample_values: [Open, In Progress, Completed, Overdue]
+      - name: ASSIGNED_TO
+        synonyms: [technician, assignee]
+        description: Technician the work order is assigned to.
+        expr: ASSIGNED_TO
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: Work order description.
+        expr: DESCRIPTION
+        data_type: VARCHAR
+    time_dimensions:
+      - name: CREATED
+        description: When the work order was created.
+        expr: CREATED
+        data_type: TIMESTAMP_NTZ
+      - name: DUE_DATE
+        description: Work order due date.
+        expr: DUE_DATE
+        data_type: DATE
+    metrics:
+      - name: WORK_ORDER_COUNT
+        synonyms: [number of work orders]
+        description: Number of work orders.
+        expr: COUNT(WO_ID)
+    filters:
+      - name: OPEN_WORK_ORDERS
+        synonyms: [open work orders, pending work orders, outstanding work orders]
+        description: Work orders not yet completed (Open, In Progress or Overdue).
+        expr: STATUS IN ('Open', 'In Progress', 'Overdue')
+relationships:
+  - name: SENSOR_TO_EQUIPMENT
+    left_table: SENSOR_DATA
+    right_table: EQUIPMENT_MASTER
+    relationship_columns:
+      - left_column: EQUIPMENT_ID
+        right_column: EQUIPMENT_ID
+  - name: FAILURES_TO_EQUIPMENT
+    left_table: FAILURE_EVENTS
+    right_table: EQUIPMENT_MASTER
+    relationship_columns:
+      - left_column: EQUIPMENT_ID
+        right_column: EQUIPMENT_ID
+  - name: MAINTENANCE_TO_EQUIPMENT
+    left_table: MAINTENANCE_LOG
+    right_table: EQUIPMENT_MASTER
+    relationship_columns:
+      - left_column: EQUIPMENT_ID
+        right_column: EQUIPMENT_ID
+  - name: WORK_ORDERS_TO_EQUIPMENT
+    left_table: WORK_ORDERS
+    right_table: EQUIPMENT_MASTER
+    relationship_columns:
+      - left_column: EQUIPMENT_ID
+        right_column: EQUIPMENT_ID

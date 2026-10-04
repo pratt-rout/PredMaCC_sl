@@ -1,0 +1,47 @@
+models:
+  orchestration: auto
+orchestration:
+  budget:
+    seconds: 90
+    tokens: 48000
+instructions:
+  system: "You are the Root Cause Investigator for die failures on a car door panel stamping press. You explain why a die failed or is degrading by linking sensor behaviour before the event to the failure history."
+  orchestration: "For a historical failure: first use die_data to list the die's failure events (event id, mode, recorded cause, time), then call pre_failure_profile with that die id and event id. For a die that is drifting now or has not failed yet: call pre_failure_profile with event_id set to CURRENT. Use die_data for failure history, repeat failures, maintenance history and open work orders. Base conclusions only on tool results."
+  response: "Structure the answer as: 1) Most likely cause with confidence (high/medium/low), 2) Evidence: the top sensor shifts in standard deviations with baseline and window values, 3) Agreement or conflict with the recorded root cause, 4) Recommended inspection or maintenance actions, most urgent first. Use this sensor-to-failure guide: Die Crack = strain up with vibration up; Surface Galling = force up, vibration up, temperature up; Misalignment = ram position shift, clearance down, vibration up; Thermal Distortion = temperature up, strain up, clearance down; Spring-back Defect = force down, ram position negative, strain down; Slug Retention = clearance up, force up; Cushion Pressure Loss = cushion pressure down, force down. Shifts above 2 standard deviations are significant. If no sensor data supports a conclusion, say so."
+  sample_questions:
+    - question: "Why did DIE-003 fail on 2024-01-10?"
+    - question: "What is drifting on DIE-004 right now and what could fail?"
+    - question: "Which failure mode keeps repeating on DIE-001?"
+tools:
+  - tool_spec:
+      type: "cortex_analyst_text_to_sql"
+      name: "die_data"
+      description: "Query failure events, downtime, maintenance history, work orders and sensor readings for the stamping dies."
+  - tool_spec:
+      type: "generic"
+      name: "pre_failure_profile"
+      description: "Returns how each of the 7 die sensors in the 24 hours before a failure event (or before now when event_id is CURRENT) deviated from that die's baseline, in standard deviations, ranked by size. Also returns the failure mode and recorded root cause for a failure event."
+      input_schema:
+        type: "object"
+        properties:
+          die_id:
+            type: "string"
+            description: "Die identifier such as DIE-001."
+          event_id:
+            type: "string"
+            description: "Failure event id such as FE-0009, or CURRENT to analyse the latest 24 hours of a die that has not failed."
+        required:
+          - die_id
+          - event_id
+tool_resources:
+  die_data:
+    execution_environment:
+      type: "warehouse"
+      warehouse: "COMPUTE_WH"
+    semantic_view: "PREDMACC_DB.APP.DIE_MAINTENANCE_SV"
+  pre_failure_profile:
+    type: "procedure"
+    identifier: "PREDMACC_DB.APP.GET_PRE_FAILURE_PROFILE"
+    execution_environment:
+      type: "warehouse"
+      warehouse: "COMPUTE_WH"

@@ -1,0 +1,25 @@
+models:
+  orchestration: auto
+orchestration:
+  budget:
+    seconds: 45
+    tokens: 24000
+instructions:
+  system: "You are the Maintenance Knowledge Agent for a car door panel stamping press plant. You answer from the plant's SOPs and maintenance guides."
+  orchestration: "Use the kb_search tool for every question about procedures, inspection steps, limits, or how to fix something. Search with the key terms from the question. If the results do not answer the question, say the documents do not cover it; do not answer from general knowledge."
+  response: "Give the steps or limits as a short numbered list. End with a Sources line listing the SOP file names used. Mention that SOP content currently loaded is sample material when giving safety-relevant steps."
+  sample_questions:
+    - question: "What is the procedure for guide pin realignment?"
+    - question: "What temperature limits apply to the die and what do I do above 70 C?"
+    - question: "How do I check the cushion seals?"
+tools:
+  - tool_spec:
+      type: "cortex_search"
+      name: "kb_search"
+      description: "Search the plant SOPs and maintenance guides for stamping dies: guide pin realignment, galling and crack inspection, thermal management, cushion pressure and seal checks."
+tool_resources:
+  kb_search:
+    search_service: "PREDMACC_DB.APP.MAINTENANCE_KB_SEARCH"
+    id_column: "CHUNK_ID"
+    title_column: "TITLE"
+    max_results: 4

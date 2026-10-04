@@ -1,5 +1,6 @@
 import streamlit as st
 from utils.data_loader import load_equipment_master, load_sensor_data
+from utils.ui import chat_fab
 
 st.set_page_config(page_title="PredMaCC", page_icon=":factory:", layout="wide")
 
@@ -29,3 +30,5 @@ st.title("Predictive Maintenance Command Center")
 st.markdown("**Car Door Panel Stamping Press — Die & Tooling Monitoring**")
 st.markdown("Converging OT die sensor streams (force, temperature, pressure, strain, vibration, position, proximity) with ERP & maintenance data to predict die failures, automate work orders, and lift OEE.")
 st.info("Use the sidebar to navigate between dashboards. Select a specific die or date range to filter across all pages.")
+
+chat_fab()

@@ -1,5 +1,6 @@
 .venv/
 .cortex/
+.env
 output/
 __pycache__/
 *.pyc

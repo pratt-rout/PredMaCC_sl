@@ -1,135 +1,38 @@
 Maintenance_ID,Equipment_ID,Date,Type,Description,Duration_hrs,Cost_INR
-MNT-0001,DIE-001,2024-01-01,Preventive,Hydraulic cushion pressure calibration,4.8,7529.76
-MNT-0031,DIE-002,2024-01-01,Preventive,Proximity sensor calibration,3.6,9522.53
-MNT-0045,DIE-003,2024-01-01,Preventive,Strain gauge zero-drift recalibration,7.8,18859.67
-MNT-0065,DIE-004,2024-01-01,Preventive,Die alignment and shim adjustment,3.9,19673.83
-MNT-0089,DIE-005,2024-01-01,Preventive,Die alignment and shim adjustment,5.6,8135.66
-MNT-0002,DIE-001,2024-01-08,Preventive,Strain gauge zero-drift recalibration,5.2,5472.02
-MNT-0066,DIE-004,2024-01-10,Preventive,Proximity sensor calibration,4.5,13532.41
-MNT-0046,DIE-003,2024-01-12,Preventive,Proximity sensor calibration,7.8,10598.97
-MNT-0003,DIE-001,2024-01-15,Preventive,Die alignment and shim adjustment,4.6,12366.57
-MNT-0102,DIE-001,2024-01-16,Breakdown,Breakdown repair: Die Crack - Fatigue crack propagation in die insert due to cyclic stamping load,6.6,25495.68
-MNT-0032,DIE-002,2024-01-17,Preventive,Die alignment and shim adjustment,7.0,9061.3
-MNT-0090,DIE-005,2024-01-18,Preventive,Hydraulic cushion pressure calibration,2.6,17222.93
-MNT-0067,DIE-004,2024-01-19,Preventive,Die alignment and shim adjustment,5.0,12138.47
-MNT-0004,DIE-001,2024-01-22,Preventive,Guide pin and bushing clearance check,2.0,23881.0
-MNT-0047,DIE-003,2024-01-23,Preventive,Die alignment and shim adjustment,5.3,7346.81
-MNT-0103,DIE-005,2024-01-24,Corrective,Corrective repair: Surface Galling - Adhesive wear on die face from sheet metal sliding under high pressure,35.6,67957.2
-MNT-0068,DIE-004,2024-01-28,Preventive,Die alignment and shim adjustment,3.2,6157.68
-MNT-0104,DIE-003,2024-01-28,Corrective,Corrective repair: Die Crack - Fatigue crack propagation in die insert due to cyclic stamping load,28.5,59362.24
-MNT-0005,DIE-001,2024-01-29,Preventive,Die surface polishing and inspection,3.9,17611.55
-MNT-0105,DIE-004,2024-01-29,Breakdown,Breakdown repair: Spring-back Defect - Excessive elastic recovery in stamped part due to worn die profile,26.7,48618.53
-MNT-0106,DIE-003,2024-02-01,Breakdown,Breakdown repair: Spring-back Defect - Excessive elastic recovery in stamped part due to worn die profile,17.4,46887.74
-MNT-0033,DIE-002,2024-02-02,Preventive,Proximity sensor calibration,7.6,18487.7
-MNT-0048,DIE-003,2024-02-03,Preventive,Die surface polishing and inspection,6.5,16673.19
-MNT-0091,DIE-005,2024-02-04,Preventive,Die alignment and shim adjustment,8.0,13857.32
-MNT-0006,DIE-001,2024-02-05,Preventive,Die surface polishing and inspection,7.4,7365.37
-MNT-0069,DIE-004,2024-02-06,Preventive,Proximity sensor calibration,6.6,24522.03
-MNT-0107,DIE-002,2024-02-07,Corrective,Corrective repair: Misalignment - Punch-die clearance deviation caused by guide pin wear,35.5,91103.9
-MNT-0108,DIE-003,2024-02-08,Corrective,Corrective repair: Thermal Distortion - Uneven die temperature causing dimensional drift in stamped panel,18.4,37222.97
-MNT-0109,DIE-001,2024-02-09,Corrective,Corrective repair: Slug Retention - Slug not ejecting from die cavity - proximity sensor triggered,34.7,82453.59
-MNT-0007,DIE-001,2024-02-12,Preventive,Proximity sensor calibration,5.3,24017.97
-MNT-0110,DIE-001,2024-02-12,Breakdown,Breakdown repair: Die Crack - Fatigue crack propagation in die insert due to cyclic stamping load,33.1,103300.2
-MNT-0049,DIE-003,2024-02-14,Preventive,Die surface polishing and inspection,7.5,12629.48
-MNT-0070,DIE-004,2024-02-15,Preventive,Guide pin and bushing clearance check,3.2,22658.56
-MNT-0034,DIE-002,2024-02-18,Preventive,Guide pin and bushing clearance check,7.1,17054.61
-MNT-0008,DIE-001,2024-02-19,Preventive,Die alignment and shim adjustment,4.0,14643.94
-MNT-0092,DIE-005,2024-02-21,Preventive,Guide pin and bushing clearance check,2.7,16152.19
-MNT-0071,DIE-004,2024-02-24,Preventive,Die surface polishing and inspection,5.4,5590.85
-MNT-0050,DIE-003,2024-02-25,Preventive,Guide pin and bushing clearance check,6.7,23581.74
-MNT-0009,DIE-001,2024-02-26,Preventive,Proximity sensor calibration,5.0,5004.75
-MNT-0111,DIE-002,2024-02-28,Breakdown,Breakdown repair: Slug Retention - Slug not ejecting from die cavity - proximity sensor triggered,18.1,58918.16
-MNT-0010,DIE-001,2024-03-04,Preventive,Hydraulic cushion pressure calibration,3.1,11149.14
-MNT-0072,DIE-004,2024-03-04,Preventive,Proximity sensor calibration,6.8,16615.78
-MNT-0035,DIE-002,2024-03-05,Preventive,Die alignment and shim adjustment,7.9,12339.35
-MNT-0051,DIE-003,2024-03-07,Preventive,Die surface polishing and inspection,5.2,17347.39
-MNT-0093,DIE-005,2024-03-09,Preventive,Proximity sensor calibration,3.3,16175.29
-MNT-0011,DIE-001,2024-03-11,Preventive,Die alignment and shim adjustment,3.0,8292.2
-MNT-0073,DIE-004,2024-03-13,Preventive,Guide pin and bushing clearance check,3.8,14999.7
-MNT-0112,DIE-005,2024-03-17,Breakdown,Breakdown repair: Spring-back Defect - Excessive elastic recovery in stamped part due to worn die profile,33.0,119260.17
-MNT-0012,DIE-001,2024-03-18,Preventive,Hydraulic cushion pressure calibration,6.7,13888.24
-MNT-0052,DIE-003,2024-03-18,Preventive,Proximity sensor calibration,4.9,13217.03
-MNT-0036,DIE-002,2024-03-21,Preventive,Guide pin and bushing clearance check,4.5,5907.34
-MNT-0074,DIE-004,2024-03-22,Preventive,Strain gauge zero-drift recalibration,6.1,12238.74
-MNT-0113,DIE-001,2024-03-24,Corrective,Corrective repair: Spring-back Defect - Excessive elastic recovery in stamped part due to worn die profile,25.8,115241.59
-MNT-0013,DIE-001,2024-03-25,Preventive,Hydraulic cushion pressure calibration,3.9,8675.69
-MNT-0094,DIE-005,2024-03-26,Preventive,Die surface polishing and inspection,5.7,23282.34
-MNT-0114,DIE-001,2024-03-28,Breakdown,Breakdown repair: Surface Galling - Adhesive wear on die face from sheet metal sliding under high pressure,11.5,81843.39
-MNT-0053,DIE-003,2024-03-29,Preventive,Guide pin and bushing clearance check,3.4,18475.77
-MNT-0075,DIE-004,2024-03-31,Preventive,Proximity sensor calibration,6.2,12923.47
-MNT-0014,DIE-001,2024-04-01,Preventive,Hydraulic cushion pressure calibration,6.2,24241.12
-MNT-0115,DIE-002,2024-04-04,Corrective,Corrective repair: Cushion Pressure Loss - Hydraulic cushion seal degradation causing uneven blank hold-down,8.9,61158.93
-MNT-0116,DIE-005,2024-04-04,Corrective,Corrective repair: Surface Galling - Adhesive wear on die face from sheet metal sliding under high pressure,13.4,32544.29
-MNT-0117,DIE-004,2024-04-05,Corrective,Corrective repair: Slug Retention - Slug not ejecting from die cavity - proximity sensor triggered,40.7,85208.79
-MNT-0037,DIE-002,2024-04-06,Preventive,Die surface polishing and inspection,2.9,21588.76
-MNT-0015,DIE-001,2024-04-08,Preventive,Hydraulic cushion pressure calibration,2.4,21844.24
-MNT-0054,DIE-003,2024-04-09,Preventive,Die surface polishing and inspection,2.8,5156.7
-MNT-0076,DIE-004,2024-04-09,Preventive,Die surface polishing and inspection,2.0,15140.17
-MNT-0118,DIE-002,2024-04-09,Breakdown,Breakdown repair: Surface Galling - Adhesive wear on die face from sheet metal sliding under high pressure,17.2,43360.56
-MNT-0119,DIE-002,2024-04-09,Breakdown,Breakdown repair: Cushion Pressure Loss - Hydraulic cushion seal degradation causing uneven blank hold-down,39.4,41463.27
-MNT-0095,DIE-005,2024-04-12,Preventive,Hydraulic cushion pressure calibration,7.3,10169.57
-MNT-0120,DIE-003,2024-04-12,Corrective,Corrective repair: Die Crack - Fatigue crack propagation in die insert due to cyclic stamping load,37.9,67161.96
-MNT-0016,DIE-001,2024-04-15,Preventive,Die surface polishing and inspection,2.7,11589.52
-MNT-0077,DIE-004,2024-04-18,Preventive,Strain gauge zero-drift recalibration,7.3,18122.79
-MNT-0055,DIE-003,2024-04-20,Preventive,Guide pin and bushing clearance check,6.9,9203.82
-MNT-0121,DIE-005,2024-04-21,Corrective,Corrective repair: Surface Galling - Adhesive wear on die face from sheet metal sliding under high pressure,28.4,90853.24
-MNT-0122,DIE-005,2024-04-21,Corrective,Corrective repair: Thermal Distortion - Uneven die temperature causing dimensional drift in stamped panel,14.6,105722.25
-MNT-0017,DIE-001,2024-04-22,Preventive,Hydraulic cushion pressure calibration,4.8,6837.42
-MNT-0038,DIE-002,2024-04-22,Preventive,Die surface polishing and inspection,3.2,9103.66
-MNT-0078,DIE-004,2024-04-27,Preventive,Die alignment and shim adjustment,7.0,13075.3
-MNT-0018,DIE-001,2024-04-29,Preventive,Die alignment and shim adjustment,5.3,14479.67
-MNT-0096,DIE-005,2024-04-29,Preventive,Proximity sensor calibration,7.9,16019.61
-MNT-0123,DIE-002,2024-04-29,Breakdown,Breakdown repair: Die Crack - Fatigue crack propagation in die insert due to cyclic stamping load,9.1,29160.56
-MNT-0056,DIE-003,2024-05-01,Preventive,Guide pin and bushing clearance check,6.1,15503.07
-MNT-0019,DIE-001,2024-05-06,Preventive,Hydraulic cushion pressure calibration,2.1,12228.87
-MNT-0079,DIE-004,2024-05-06,Preventive,Proximity sensor calibration,7.6,18711.91
-MNT-0124,DIE-003,2024-05-07,Breakdown,Breakdown repair: Spring-back Defect - Excessive elastic recovery in stamped part due to worn die profile,15.3,111766.69
-MNT-0039,DIE-002,2024-05-08,Preventive,Hydraulic cushion pressure calibration,5.7,7738.07
-MNT-0125,DIE-003,2024-05-08,Breakdown,Breakdown repair: Surface Galling - Adhesive wear on die face from sheet metal sliding under high pressure,19.2,90073.18
-MNT-0057,DIE-003,2024-05-12,Preventive,Guide pin and bushing clearance check,2.6,16399.95
-MNT-0020,DIE-001,2024-05-13,Preventive,Guide pin and bushing clearance check,7.9,17447.24
-MNT-0080,DIE-004,2024-05-15,Preventive,Proximity sensor calibration,5.9,6360.42
-MNT-0097,DIE-005,2024-05-16,Preventive,Die surface polishing and inspection,7.7,20966.73
-MNT-0126,DIE-005,2024-05-19,Breakdown,Breakdown repair: Slug Retention - Slug not ejecting from die cavity - proximity sensor triggered,20.4,16423.03
-MNT-0021,DIE-001,2024-05-20,Preventive,Strain gauge zero-drift recalibration,2.7,15611.97
-MNT-0058,DIE-003,2024-05-23,Preventive,Die surface polishing and inspection,6.6,11487.92
-MNT-0040,DIE-002,2024-05-24,Preventive,Hydraulic cushion pressure calibration,5.2,21282.03
-MNT-0081,DIE-004,2024-05-24,Preventive,Die alignment and shim adjustment,5.3,16479.6
-MNT-0022,DIE-001,2024-05-27,Preventive,Hydraulic cushion pressure calibration,2.5,5490.26
-MNT-0082,DIE-004,2024-06-02,Preventive,Die surface polishing and inspection,2.1,20500.69
-MNT-0098,DIE-005,2024-06-02,Preventive,Hydraulic cushion pressure calibration,7.4,15679.68
-MNT-0023,DIE-001,2024-06-03,Preventive,Strain gauge zero-drift recalibration,2.6,10789.87
-MNT-0059,DIE-003,2024-06-03,Preventive,Proximity sensor calibration,6.4,18179.26
-MNT-0041,DIE-002,2024-06-09,Preventive,Proximity sensor calibration,3.3,13605.08
-MNT-0127,DIE-002,2024-06-09,Corrective,Corrective repair: Spring-back Defect - Excessive elastic recovery in stamped part due to worn die profile,9.5,62147.18
-MNT-0024,DIE-001,2024-06-10,Preventive,Guide pin and bushing clearance check,2.1,19263.7
-MNT-0128,DIE-004,2024-06-10,Breakdown,Breakdown repair: Thermal Distortion - Uneven die temperature causing dimensional drift in stamped panel,19.0,29586.02
-MNT-0083,DIE-004,2024-06-11,Preventive,Die alignment and shim adjustment,7.1,15083.97
-MNT-0060,DIE-003,2024-06-14,Preventive,Die alignment and shim adjustment,2.1,5115.35
-MNT-0025,DIE-001,2024-06-17,Preventive,Die surface polishing and inspection,5.0,17639.01
-MNT-0099,DIE-005,2024-06-19,Preventive,Guide pin and bushing clearance check,3.5,23001.42
-MNT-0084,DIE-004,2024-06-20,Preventive,Proximity sensor calibration,2.4,23137.57
-MNT-0026,DIE-001,2024-06-24,Preventive,Die surface polishing and inspection,7.9,19699.53
-MNT-0042,DIE-002,2024-06-25,Preventive,Proximity sensor calibration,3.7,8793.86
-MNT-0061,DIE-003,2024-06-25,Preventive,Hydraulic cushion pressure calibration,3.5,21700.84
-MNT-0085,DIE-004,2024-06-29,Preventive,Die alignment and shim adjustment,5.5,11231.56
-MNT-0027,DIE-001,2024-07-01,Preventive,Hydraulic cushion pressure calibration,2.4,13556.41
-MNT-0129,DIE-004,2024-07-05,Breakdown,Breakdown repair: Slug Retention - Slug not ejecting from die cavity - proximity sensor triggered,14.9,48244.2
-MNT-0062,DIE-003,2024-07-06,Preventive,Die alignment and shim adjustment,7.6,13574.83
-MNT-0100,DIE-005,2024-07-06,Preventive,Hydraulic cushion pressure calibration,5.2,23358.76
-MNT-0028,DIE-001,2024-07-08,Preventive,Proximity sensor calibration,7.5,9256.82
-MNT-0086,DIE-004,2024-07-08,Preventive,Guide pin and bushing clearance check,4.2,15885.97
-MNT-0130,DIE-001,2024-07-09,Breakdown,Breakdown repair: Thermal Distortion - Uneven die temperature causing dimensional drift in stamped panel,12.9,28147.58
-MNT-0131,DIE-001,2024-07-09,Breakdown,Breakdown repair: Die Crack - Fatigue crack propagation in die insert due to cyclic stamping load,27.7,46573.35
-MNT-0043,DIE-002,2024-07-11,Preventive,Hydraulic cushion pressure calibration,3.2,13550.44
-MNT-0132,DIE-005,2024-07-13,Breakdown,Breakdown repair: Surface Galling - Adhesive wear on die face from sheet metal sliding under high pressure,28.6,97766.08
-MNT-0133,DIE-001,2024-07-14,Breakdown,Breakdown repair: Surface Galling - Adhesive wear on die face from sheet metal sliding under high pressure,30.5,79063.9
-MNT-0134,DIE-005,2024-07-14,Corrective,Corrective repair: Spring-back Defect - Excessive elastic recovery in stamped part due to worn die profile,18.9,32011.81
-MNT-0029,DIE-001,2024-07-15,Preventive,Guide pin and bushing clearance check,4.8,19003.15
-MNT-0063,DIE-003,2024-07-17,Preventive,Hydraulic cushion pressure calibration,4.8,21235.61
-MNT-0087,DIE-004,2024-07-17,Preventive,Hydraulic cushion pressure calibration,4.3,15071.61
-MNT-0030,DIE-001,2024-07-22,Preventive,Guide pin and bushing clearance check,6.7,12653.48
-MNT-0101,DIE-005,2024-07-23,Preventive,Die alignment and shim adjustment,7.5,17688.03
-MNT-0088,DIE-004,2024-07-26,Preventive,Die surface polishing and inspection,4.5,20524.85
-MNT-0044,DIE-002,2024-07-27,Preventive,Strain gauge zero-drift recalibration,6.2,6680.76
-MNT-0064,DIE-003,2024-07-28,Preventive,Strain gauge zero-drift recalibration,2.9,5856.49
+MNT-0001,DIE-001,2024-01-03,Preventive,Strain gauge zero-drift recalibration,7.2,24556.74
+MNT-0009,DIE-003,2024-01-03,Preventive,Strain gauge zero-drift recalibration,4.1,12307.93
+MNT-0005,DIE-002,2024-01-05,Preventive,Die alignment and shim adjustment,3.3,7314.89
+MNT-0016,DIE-005,2024-01-06,Preventive,Die surface polishing and inspection,2.2,17963.14
+MNT-0013,DIE-004,2024-01-08,Preventive,Proximity sensor calibration,5.5,22017.31
+MNT-0019,DIE-001,2024-01-08,Corrective,Corrective repair: Die Crack - Fatigue crack propagation in die insert due to cyclic stamping load,9.8,36079.39
+MNT-0020,DIE-003,2024-01-10,Breakdown,Breakdown repair: Misalignment - Punch-die clearance deviation caused by guide pin wear,24.9,37877.36
+MNT-0021,DIE-004,2024-01-11,Corrective,Corrective repair: Slug Retention - Slug not ejecting from die cavity - proximity sensor triggered,7.7,35777.98
+MNT-0002,DIE-001,2024-01-14,Preventive,Guide pin and bushing clearance check,4.0,19025.5
+MNT-0022,DIE-001,2024-01-15,Breakdown,Breakdown repair: Surface Galling - Adhesive wear on die face from sheet metal sliding under high pressure,13.8,50094.23
+MNT-0023,DIE-002,2024-01-15,Corrective,Corrective repair: Cushion Pressure Loss - Hydraulic cushion seal degradation causing uneven blank hold-down,26.8,80563.3
+MNT-0024,DIE-005,2024-01-15,Breakdown,Breakdown repair: Cushion Pressure Loss - Hydraulic cushion seal degradation causing uneven blank hold-down,14.0,31747.88
+MNT-0010,DIE-003,2024-01-17,Preventive,Die surface polishing and inspection,4.2,24138.8
+MNT-0025,DIE-003,2024-01-17,Corrective,Corrective repair: Slug Retention - Slug not ejecting from die cavity - proximity sensor triggered,19.7,58772.07
+MNT-0006,DIE-002,2024-01-18,Preventive,Die alignment and shim adjustment,7.1,20144.16
+MNT-0017,DIE-005,2024-01-18,Preventive,Strain gauge zero-drift recalibration,4.1,12324.09
+MNT-0026,DIE-004,2024-01-18,Corrective,Corrective repair: Slug Retention - Slug not ejecting from die cavity - proximity sensor triggered,10.8,86740.53
+MNT-0027,DIE-005,2024-01-19,Corrective,Corrective repair: Misalignment - Punch-die clearance deviation caused by guide pin wear,13.0,113543.38
+MNT-0014,DIE-004,2024-01-21,Preventive,Strain gauge zero-drift recalibration,3.0,23673.34
+MNT-0028,DIE-001,2024-01-21,Breakdown,Breakdown repair: Spring-back Defect - Excessive elastic recovery in stamped part due to worn die profile,9.0,41067.41
+MNT-0029,DIE-002,2024-01-22,Corrective,Corrective repair: Cushion Pressure Loss - Hydraulic cushion seal degradation causing uneven blank hold-down,21.6,85890.52
+MNT-0030,DIE-001,2024-01-26,Breakdown,Breakdown repair: Surface Galling - Adhesive wear on die face from sheet metal sliding under high pressure,25.1,96246.95
+MNT-0003,DIE-001,2024-01-27,Preventive,Die surface polishing and inspection,4.8,18310.59
+MNT-0031,DIE-002,2024-01-28,Corrective,Corrective repair: Slug Retention - Slug not ejecting from die cavity - proximity sensor triggered,17.5,68556.09
+MNT-0011,DIE-003,2024-01-29,Preventive,Die surface polishing and inspection,5.4,15632.05
+MNT-0032,DIE-003,2024-01-29,Corrective,Corrective repair: Die Crack - Fatigue crack propagation in die insert due to cyclic stamping load,25.2,70442.68
+MNT-0033,DIE-004,2024-01-30,Corrective,Corrective repair: Misalignment - Punch-die clearance deviation caused by guide pin wear,25.9,90656.83
+MNT-0034,DIE-005,2024-01-30,Corrective,Corrective repair: Slug Retention - Slug not ejecting from die cavity - proximity sensor triggered,13.2,71200.63
+MNT-0007,DIE-002,2024-01-31,Preventive,Hydraulic cushion pressure calibration,4.1,21643.18
+MNT-0018,DIE-005,2024-02-01,Preventive,Proximity sensor calibration,7.2,13934.72
+MNT-0015,DIE-004,2024-02-03,Preventive,Proximity sensor calibration,2.9,12983.36
+MNT-0035,DIE-001,2024-02-04,Corrective,Corrective repair: Slug Retention - Slug not ejecting from die cavity - proximity sensor triggered,20.4,73333.43
+MNT-0036,DIE-003,2024-02-05,Breakdown,Breakdown repair: Thermal Distortion - Uneven die temperature causing dimensional drift in stamped panel,6.4,95645.68
+MNT-0037,DIE-004,2024-02-07,Breakdown,Breakdown repair: Cushion Pressure Loss - Hydraulic cushion seal degradation causing uneven blank hold-down,12.0,95252.46
+MNT-0004,DIE-001,2024-02-08,Preventive,Proximity sensor calibration,7.3,9795.21
+MNT-0008,DIE-002,2024-02-09,Preventive,Die alignment and shim adjustment,2.7,7382.85
+MNT-0012,DIE-003,2024-02-09,Preventive,Hydraulic cushion pressure calibration,2.6,20448.8

@@ -5,6 +5,7 @@ from utils.data_loader import (
 )
 from utils.alerts import generate_alerts
 from utils.analytics import compute_health_score
+from utils.ui import chat_fab
 
 st.header("Command Center — Die Alert Triage")
 
@@ -65,3 +66,5 @@ fig = px.pie(wo_counts, values="Count", names="Status", title="Work Orders by St
              color_discrete_sequence=px.colors.qualitative.Set2)
 fig.update_layout(height=300)
 st.plotly_chart(fig, use_container_width=True)
+
+chat_fab()
